@@ -2,6 +2,7 @@ package lk.ijse.Crop_monitoring_system_backend.entity;
 
 import jakarta.persistence.*;
 import lk.ijse.Crop_monitoring_system_backend.util.enums.Gender;
+import lk.ijse.Crop_monitoring_system_backend.util.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "staff")
-public class StaffEntity {
+public class EmployeeEntity {
     @Id
     private String id;
 
@@ -48,7 +49,7 @@ public class StaffEntity {
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private lk.ijse.Crop_monitoring_system_backend.util.Role role;
+    private Role role;
 
     @ElementCollection
     @CollectionTable(name = "staff_fields", joinColumns = @JoinColumn(name = "staff_id"))
