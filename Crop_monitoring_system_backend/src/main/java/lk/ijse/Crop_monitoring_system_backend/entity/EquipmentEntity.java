@@ -24,7 +24,7 @@ public class EquipmentEntity {
 
     @ManyToOne
     @JoinColumn(name = "staff_id")
-    private StaffEntity assigned_staff_details;
+    private EmployeeEntity assigned_staff_details;
 
     @ManyToOne
     @JoinColumn(name = "field_id")
