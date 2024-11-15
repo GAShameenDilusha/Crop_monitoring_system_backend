@@ -2,7 +2,9 @@ package lk.ijse.Crop_monitoring_system_backend.util.convert;
 
 
 
+import lk.ijse.Crop_monitoring_system_backend.dto.EmployeeDTO;
 import lk.ijse.Crop_monitoring_system_backend.dto.FieldDTO;
+import lk.ijse.Crop_monitoring_system_backend.entity.EmployeeEntity;
 import lk.ijse.Crop_monitoring_system_backend.entity.FieldEntity;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.spi.Mapping;
@@ -17,7 +19,7 @@ public class Converter {
     private Mapping mapping;
 
     //set customer dtos values to temCustomer entity
-/*    public void convertCustomerEntity(CustomerDTO customerDTO, CustomerEntity tmpCustomerEntity) {
+   /* public void convertCustomerEntity(CustomerDTO customerDTO, CustomerEntity tmpCustomerEntity) {
         tmpCustomerEntity.setCustomer_code(customerDTO.getCustomer_code());
         tmpCustomerEntity.setName(customerDTO.getName());
         tmpCustomerEntity.setGender(customerDTO.getGender());
@@ -34,10 +36,10 @@ public class Converter {
         tmpCustomerEntity.setEmail(customerDTO.getEmail());
         tmpCustomerEntity.setRecent_purchase(customerDTO.getRecent_purchase());
 
-    }
+    }*/
 
     //set supplier dtos values to temSupplier entity
-    public void convertSupplierEntity(SupplierDTO supplierDTO, SupplierEntity tmpSupplierEntity) {
+   /* public void convertSupplierEntity(SupplierDTO supplierDTO, SupplierEntity tmpSupplierEntity) {
         tmpSupplierEntity.setSupplier_code(supplierDTO.getSupplier_code());
         tmpSupplierEntity.setName(supplierDTO.getName());
         tmpSupplierEntity.setCategory(supplierDTO.getCategory());
@@ -51,7 +53,7 @@ public class Converter {
         tmpSupplierEntity.setLandline_contact(supplierDTO.getLandline_contact());
         tmpSupplierEntity.setEmail(supplierDTO.getEmail());
 
-    }
+    }*/
 
     //set employee entity values to temEmployee dto
     public void convertEmployeeEntity(EmployeeDTO employeeDTO, EmployeeEntity tmpEmployeeEntity) {
@@ -78,7 +80,7 @@ public class Converter {
     }
 
     //set inventory entity values to temInventory dto
-    public void convertInventoryEntity(InventoryDTO inventoryDTO, InventoryEntity tmpInventoryEntity) {
+  /*  public void convertInventoryEntity(InventoryDTO inventoryDTO, InventoryEntity tmpInventoryEntity) {
         tmpInventoryEntity.setItem_code(inventoryDTO.getItem_code());
         tmpInventoryEntity.setItem_desc(inventoryDTO.getItem_desc());
         tmpInventoryEntity.setItem_pic(inventoryDTO.getItem_pic());
@@ -86,7 +88,7 @@ public class Converter {
         tmpInventoryEntity.setGender(inventoryDTO.getGender());
         tmpInventoryEntity.setVerities(inventoryDTO.getVerities());
         tmpInventoryEntity.setSupplier(mapping.mapToSupplierEntity(inventoryDTO.getSupplier()));
-       *//* tmpInventoryEntity.setCategory(inventoryDTO.getCategory());
+        tmpInventoryEntity.setCategory(inventoryDTO.getCategory());
         tmpInventoryEntity.setSize(inventoryDTO.getSize());
         tmpInventoryEntity.setSupplier_code(inventoryDTO.getSupplier_code());
         tmpInventoryEntity.setSupplier_name(inventoryDTO.getSupplier_name());
@@ -95,19 +97,19 @@ public class Converter {
         tmpInventoryEntity.setExpected_profit(inventoryDTO.getExpected_profit());
         tmpInventoryEntity.setProfit_margin(inventoryDTO.getProfit_margin());
         tmpInventoryEntity.setStatus(inventoryDTO.getStatus());
-        tmpInventoryEntity.setQty_on_hand(inventoryDTO.getQty_on_hand());*//*
-    }
+        tmpInventoryEntity.setQty_on_hand(inventoryDTO.getQty_on_hand());
+    }*/
 
     //set return entity values to temReturn dto
-    public void convertReturnEntity(ReturnDTO returnDTO, ReturnEntity tmpReturnEntity) {
+  /*  public void convertReturnEntity(ReturnDTO returnDTO, ReturnEntity tmpReturnEntity) {
         tmpReturnEntity.setReturn_id(returnDTO.getReturn_id());
         tmpReturnEntity.setReturn_date(returnDTO.getReturn_date());
         tmpReturnEntity.setReason(returnDTO.getReason());
 
-    }
+    }*/
 
     //set sale entity values to temSale dto
-    public void convertSaleEntity(SaleDTO saleDTO, SaleEntity tmpSaleEntity) {
+   /* public void convertSaleEntity(SaleDTO saleDTO, SaleEntity tmpSaleEntity) {
         tmpSaleEntity.setOrder_id(saleDTO.getOrder_id());
         // tmpSaleEntity.setItem_code(saleDTO.getItem_code());
         tmpSaleEntity.setCustomer(mapping.mapToCustomerEntity(saleDTO.getCustomer()));
@@ -120,10 +122,10 @@ public class Converter {
         tmpSaleEntity.setPayment_method(saleDTO.getPayment_method());
         tmpSaleEntity.setAdded_points(saleDTO.getAdded_points());
         tmpSaleEntity.setCashier_name(saleDTO.getCashier_name());
-    }
+    }*/
 
     //set size entity values to temSize dto
-    public void convertSizeEntity(SizeDTO sizeDTO, SizeEntity tmpSizeEntity) {
+  /*  public void convertSizeEntity(SizeDTO sizeDTO, SizeEntity tmpSizeEntity) {
         tmpSizeEntity.setSize_code(sizeDTO.getSize_code());
         tmpSizeEntity.setSize(sizeDTO.getSize());
     }*/
