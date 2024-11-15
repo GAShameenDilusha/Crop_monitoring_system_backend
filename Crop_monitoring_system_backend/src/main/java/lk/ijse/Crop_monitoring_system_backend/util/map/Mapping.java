@@ -1,8 +1,9 @@
 package lk.ijse.Crop_monitoring_system_backend.util.map;
 
+import lk.ijse.Crop_monitoring_system_backend.dto.EmployeeDTO;
 import lk.ijse.Crop_monitoring_system_backend.dto.FieldDTO;
 import lk.ijse.Crop_monitoring_system_backend.entity.FieldEntity;
-import lk.ijse.Crop_monitoring_system_backend.entity.StaffEntity;
+import lk.ijse.Crop_monitoring_system_backend.entity.EmployeeEntity;
 import lombok.RequiredArgsConstructor;
 
 import org.modelmapper.ModelMapper;
@@ -48,12 +49,12 @@ public class Mapping {
 */
     //employee mappings
 
-    public EmployeeDTO mapToEmployeeDTO(StaffEntity employeeEntity) {
+    public EmployeeDTO mapToEmployeeDTO(EmployeeEntity employeeEntity) {
         if (employeeEntity == null) {
             return null;
         }
 
-      /*  EmployeeDTO employeeDTO = new EmployeeDTO();
+        EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployee_code(employeeEntity.getEmployee_code());
         employeeDTO.setName(employeeEntity.getName());
         employeeDTO.setProfile_pic(employeeEntity.getProfile_pic());
@@ -71,7 +72,7 @@ public class Mapping {
         employeeDTO.setContact(employeeEntity.getContact());
         employeeDTO.setEmail(employeeEntity.getEmail());
         employeeDTO.setGuardian_name(employeeEntity.getGuardian_name());
-        employeeDTO.setGuardian_contact(employeeEntity.getGuardian_contact());*/
+        employeeDTO.setGuardian_contact(employeeEntity.getGuardian_contact());
 
         FieldEntity fieldEntity = employeeEntity.getField();
         if (fieldEntity != null) {
