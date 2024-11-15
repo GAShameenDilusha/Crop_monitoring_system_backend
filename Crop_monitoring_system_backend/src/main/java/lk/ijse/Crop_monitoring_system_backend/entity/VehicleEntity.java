@@ -24,7 +24,7 @@ public class VehicleEntity {
 
     @ManyToOne
     @JoinColumn(name = "staff_id")
-    private StaffEntity allocated_staff_member_details;
+    private EmployeeEntity allocated_staff_member_details;
 
     private String remarks;
 }
