@@ -1,4 +1,4 @@
-package lk.ijse.Crop_monitoring_system_backend.util;
+package lk.ijse.Crop_monitoring_system_backend.util.enums;
 
 public enum Role {
     ADMIN,
