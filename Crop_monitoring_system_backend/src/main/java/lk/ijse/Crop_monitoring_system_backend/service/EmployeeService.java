@@ -1,3 +1,4 @@
+/*
 package lk.ijse.Crop_monitoring_system_backend.service;
 
 
@@ -24,4 +25,21 @@ public interface EmployeeService extends SuperService<String, EmployeeDTO> {
     String getFieldCodeByEmployeeCode(String cashierName);
 
     List<String> getEmployeeCountByField();
+}
+*/
+package lk.ijse.Crop_monitoring_system_backend.service;
+
+import lk.ijse.Crop_monitoring_system_backend.dto.EmployeeDTO;
+import lk.ijse.Crop_monitoring_system_backend.dto.extra.EmployeeCountDTO;
+import lk.ijse.Crop_monitoring_system_backend.dto.extra.EmployeeDesigCountsDTO;
+
+import java.util.List;
+
+public interface EmployeeService extends SuperService<String, EmployeeDTO> {
+    String getEmployeeCode();
+    List<String> getDesignations();
+    EmployeeCountDTO getEmployeeCount();
+    EmployeeDesigCountsDTO getEmployeeCountByDesignation();
+    List<String> getFieldsByEmployeeId(String employeeId);
+    List<String> getVehiclesByEmployeeId(String employeeId);
 }
