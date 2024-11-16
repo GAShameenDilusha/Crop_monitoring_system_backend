@@ -1,3 +1,4 @@
+/*
 package lk.ijse.Crop_monitoring_system_backend.util.map;
 
 import lk.ijse.Crop_monitoring_system_backend.dto.EmployeeDTO;
@@ -5,6 +6,7 @@ import lk.ijse.Crop_monitoring_system_backend.dto.FieldDTO;
 import lk.ijse.Crop_monitoring_system_backend.entity.FieldEntity;
 import lk.ijse.Crop_monitoring_system_backend.entity.EmployeeEntity;
 import lombok.RequiredArgsConstructor;
+
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -20,7 +22,8 @@ public class Mapping {
 
     //customer mappings
 
-  /*  public CustomerDTO mapToCustomerDTO(CustomerEntity customerEntity) {
+  */
+/*  public CustomerDTO mapToCustomerDTO(CustomerEntity customerEntity) {
         return modelMapper.map(customerEntity, CustomerDTO.class);
 
     }
@@ -46,7 +49,8 @@ public class Mapping {
     public List<SupplierDTO> mapToSupplierDTOList(List<SupplierEntity> supplierEntities) {
         return supplierEntities.stream().map(hotel -> modelMapper.map(hotel, SupplierDTO.class)).collect(Collectors.toList());
     }
-*/
+*//*
+
     //employee mappings
 
     public EmployeeDTO mapToEmployeeDTO(EmployeeEntity employeeEntity) {
@@ -93,7 +97,7 @@ public class Mapping {
         return employeeDTO;
     }
 
-  /*  public EmployeeEntity mapToEmployeeEntity(EmployeeDTO employeeDTO) {
+    public EmployeeEntity mapToEmployeeEntity(EmployeeDTO employeeDTO) {
         return modelMapper.map(employeeDTO, EmployeeEntity.class);
     }
 
@@ -102,7 +106,8 @@ public class Mapping {
     }
 
     //inventory mappings
-    public InventoryDTO mapToInventoryDTO(InventoryEntity inventoryEntity) {
+  */
+/*  public InventoryDTO mapToInventoryDTO(InventoryEntity inventoryEntity) {
         return modelMapper.map(inventoryEntity, InventoryDTO.class);
     }
 
@@ -211,7 +216,8 @@ public class Mapping {
         return sizeInventoryDetailsEntities;
 
 
-    }*/
+    }*//*
+
 
     //field mapping
 
@@ -227,11 +233,12 @@ public class Mapping {
         return fieldEntities.stream().map(hotel -> modelMapper.map(hotel, FieldDTO.class)).collect(Collectors.toList());
     }
 
-  /*  public List<EmployeeEntity> mapToEmployeeEntities(List<EmployeeDTO> employees) {
+    public List<EmployeeEntity> mapToEmployeeEntities(List<EmployeeDTO> employees) {
         return employees.stream().map(hotel -> modelMapper.map(hotel, EmployeeEntity.class)).collect(Collectors.toList());
     }
 
-    public UserEntity toUserEntity(UserDTO userDTO) {
+  */
+/*  public UserEntity toUserEntity(UserDTO userDTO) {
         return modelMapper.map(userDTO, UserEntity.class);
     }
 
@@ -279,5 +286,163 @@ public class Mapping {
 
     public List<UserDTO> toUserDTOs(List<UserEntity> all) {
         return all.stream().map(hotel -> modelMapper.map(hotel, UserDTO.class)).collect(Collectors.toList());
-    }*/
+    }*//*
+
+}
+*/
+package lk.ijse.Crop_monitoring_system_backend.util.map;
+
+import lk.ijse.Crop_monitoring_system_backend.dto.EmployeeDTO;
+import lk.ijse.Crop_monitoring_system_backend.dto.FieldDTO;
+import lk.ijse.Crop_monitoring_system_backend.entity.FieldEntity;
+import lk.ijse.Crop_monitoring_system_backend.entity.EmployeeEntity;
+import lombok.RequiredArgsConstructor;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Component
+@RequiredArgsConstructor
+public class Mapping {
+    private final ModelMapper modelMapper;
+
+    public EmployeeDTO mapToEmployeeDTO(EmployeeEntity employeeEntity) {
+        if (employeeEntity == null) {
+            return null;
+        }
+
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setId(employeeEntity.getId());
+        employeeDTO.setFirst_name(employeeEntity.getFirst_name());
+        employeeDTO.setLast_name(employeeEntity.getLast_name());
+        employeeDTO.setDesignation(employeeEntity.getDesignation());
+        employeeDTO.setGender(employeeEntity.getGender());
+        employeeDTO.setJoined_date(employeeEntity.getJoined_date());
+        employeeDTO.setDOB(employeeEntity.getDOB());
+        employeeDTO.setAddress_line_01(employeeEntity.getAddress_line_01());
+        employeeDTO.setAddress_line_02(employeeEntity.getAddress_line_02());
+        employeeDTO.setAddress_line_03(employeeEntity.getAddress_line_03());
+        employeeDTO.setAddress_line_04(employeeEntity.getAddress_line_04());
+        employeeDTO.setAddress_line_05(employeeEntity.getAddress_line_05());
+        employeeDTO.setContact_no(employeeEntity.getContact_no());
+        employeeDTO.setEmail(employeeEntity.getEmail());
+        employeeDTO.setRole(employeeEntity.getRole());
+        employeeDTO.setField(employeeEntity.getField());
+        employeeDTO.setVehicle(employeeEntity.getVehicle());
+
+        return employeeDTO;
+    }
+
+    public EmployeeEntity mapToEmployeeEntity(EmployeeDTO employeeDTO) {
+        if (employeeDTO == null) {
+            return null;
+        }
+
+        EmployeeEntity employeeEntity = new EmployeeEntity();
+        employeeEntity.setId(employeeDTO.getId());
+        employeeEntity.setFirst_name(employeeDTO.getFirst_name());
+        employeeEntity.setLast_name(employeeDTO.getLast_name());
+        employeeEntity.setDesignation(employeeDTO.getDesignation());
+        employeeEntity.setGender(employeeDTO.getGender());
+        employeeEntity.setJoined_date(employeeDTO.getJoined_date());
+        employeeEntity.setDOB(employeeDTO.getDOB());
+        employeeEntity.setAddress_line_01(employeeDTO.getAddress_line_01());
+        employeeEntity.setAddress_line_02(employeeDTO.getAddress_line_02());
+        employeeEntity.setAddress_line_03(employeeDTO.getAddress_line_03());
+        employeeEntity.setAddress_line_04(employeeDTO.getAddress_line_04());
+        employeeEntity.setAddress_line_05(employeeDTO.getAddress_line_05());
+        employeeEntity.setContact_no(employeeDTO.getContact_no());
+        employeeEntity.setEmail(employeeDTO.getEmail());
+        employeeEntity.setRole(employeeDTO.getRole());
+        employeeEntity.setField(employeeDTO.getField());
+        employeeEntity.setVehicle(employeeDTO.getVehicle());
+
+        return employeeEntity;
+    }
+
+    public FieldDTO mapToFieldDTO(FieldEntity fieldEntity) {
+        if (fieldEntity == null) {
+            return null;
+        }
+
+        FieldDTO fieldDTO = new FieldDTO();
+        fieldDTO.setFieldCode(fieldEntity.getField_code());
+        fieldDTO.setFieldName(fieldEntity.getField_name());
+
+        if (fieldEntity.getField_location() != null) {
+            fieldDTO.setLatitude(fieldEntity.getField_location().getLatitude());
+            fieldDTO.setLongitude(fieldEntity.getField_location().getLongitude());
+        }
+
+        fieldDTO.setExtentSize(fieldEntity.getExtent_size_of_the_Field());
+        fieldDTO.setCrops(fieldEntity.getCrops());
+        fieldDTO.setStaff(fieldEntity.getStaff());
+        fieldDTO.setFieldImage1(fieldEntity.getField_image1());
+        fieldDTO.setFieldImage2(fieldEntity.getField_image2());
+
+        return fieldDTO;
+    }
+
+    public FieldEntity mapToFieldEntity(FieldDTO fieldDTO) {
+        if (fieldDTO == null) {
+            return null;
+        }
+
+        FieldEntity fieldEntity = new FieldEntity();
+        fieldEntity.setField_code(fieldDTO.getFieldCode());
+        fieldEntity.setField_name(fieldDTO.getFieldName());
+
+        // Create and set field location
+        FieldEntity.Point point = fieldEntity.new Point();
+        point.setLatitude(fieldDTO.getLatitude());
+        point.setLongitude(fieldDTO.getLongitude());
+        fieldEntity.setField_location(point);
+
+        fieldEntity.setExtent_size_of_the_Field(fieldDTO.getExtentSize());
+        fieldEntity.setCrops(fieldDTO.getCrops());
+        fieldEntity.setStaff(fieldDTO.getStaff());
+        fieldEntity.setField_image1(fieldDTO.getFieldImage1());
+        fieldEntity.setField_image2(fieldDTO.getFieldImage2());
+
+        return fieldEntity;
+    }
+
+    public List<EmployeeDTO> mapToEmployeeDTOList(List<EmployeeEntity> employeeEntities) {
+        if (employeeEntities == null) {
+            return null;
+        }
+        return employeeEntities.stream()
+                .map(this::mapToEmployeeDTO)
+                .collect(Collectors.toList());
+    }
+
+    public List<FieldDTO> mapToFieldDTOList(List<FieldEntity> fieldEntities) {
+        if (fieldEntities == null) {
+            return null;
+        }
+        return fieldEntities.stream()
+                .map(this::mapToFieldDTO)
+                .collect(Collectors.toList());
+    }
+
+    public List<EmployeeEntity> mapToEmployeeEntities(List<EmployeeDTO> employeeDTOs) {
+        if (employeeDTOs == null) {
+            return null;
+        }
+        return employeeDTOs.stream()
+                .map(this::mapToEmployeeEntity)
+                .collect(Collectors.toList());
+    }
+
+    public List<FieldEntity> mapToFieldEntities(List<FieldDTO> fieldDTOs) {
+        if (fieldDTOs == null) {
+            return null;
+        }
+        return fieldDTOs.stream()
+                .map(this::mapToFieldEntity)
+                .collect(Collectors.toList());
+    }
 }
