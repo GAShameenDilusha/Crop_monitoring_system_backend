@@ -1,3 +1,4 @@
+/*
 package lk.ijse.Crop_monitoring_system_backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -38,4 +39,55 @@ public class EmployeeDTO implements SuperDTO{
 
     @JsonBackReference
     private FieldDTO branch;
+}
+*/
+package lk.ijse.Crop_monitoring_system_backend.dto;
+
+import lk.ijse.Crop_monitoring_system_backend.util.enums.Gender;
+import lk.ijse.Crop_monitoring_system_backend.util.enums.Role;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.Date;
+import java.util.List;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class EmployeeDTO implements SuperDTO {
+
+    private String id;
+
+    private String first_name;
+
+    private String last_name;
+
+    private String designation;
+
+    private Gender gender;
+
+    private Date joined_date;
+
+    private Date DOB;
+
+    private String address_line_01;
+
+    private String address_line_02;
+
+    private String address_line_03;
+
+    private String address_line_04;
+
+    private String address_line_05;
+
+    private String contact_no;
+
+    private String email;
+
+    private Role role;
+
+    private List<String> field;
+
+    private List<String> vehicle;
 }
