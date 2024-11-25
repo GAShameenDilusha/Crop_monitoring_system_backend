@@ -1,7 +1,7 @@
 package lk.ijse.Crop_monitoring_system_backend.config;
 
 
-import lk.ijse.gdse.hello_shoe_pvt_ltd.service.UserService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,7 +50,7 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider dap = new DaoAuthenticationProvider(); //Todo : මීට අමතරව අනුමත ප්‍රකාශයක් එකතු කරන්න පුලුවන්
+        DaoAuthenticationProvider dap = new DaoAuthenticationProvider(); //Todo :meeta amatharawa anumana prakashayak ekathu karanna puluwan..
         dap.setUserDetailsService(userService.userDetailsService());
         dap.setPasswordEncoder(passwordEncoder());
         return dap;
