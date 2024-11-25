@@ -4,8 +4,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lk.ijse.gdse.hello_shoe_pvt_ltd.service.JWTService;
-import lk.ijse.gdse.hello_shoe_pvt_ltd.service.UserService;
+
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
