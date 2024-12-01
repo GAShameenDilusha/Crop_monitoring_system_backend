@@ -1,4 +1,7 @@
 package lk.ijse.Crop_monitoring_system_backend.service;
 
-public interface CropService {
+
+import lk.ijse.Crop_monitoring_system_backend.Dto.impl.CropDto;
+
+public interface CropService extends BaseService<CropDto> {
 }
