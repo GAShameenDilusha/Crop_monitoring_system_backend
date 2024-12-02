@@ -1,71 +1,73 @@
 package lk.ijse.Crop_monitoring_system_backend.service.impl;
 
-import jakarta.transaction.Transactional;
 
-import lk.ijse.Crop_monitoring_system_backend.dto.UserDTO;
-import lk.ijse.Crop_monitoring_system_backend.entity.UserEntity;
-import lk.ijse.Crop_monitoring_system_backend.repository.UserRepo;
-import lk.ijse.Crop_monitoring_system_backend.util.map.Mapping;
-import lombok.RequiredArgsConstructor;
+import lk.ijse.Crop_monitoring_system_backend.Dao.UserDao;
+import lk.ijse.Crop_monitoring_system_backend.Dto.impl.UserDto;
+import lk.ijse.Crop_monitoring_system_backend.Entity.UserEntity;
+import lk.ijse.Crop_monitoring_system_backend.Exception.UserNotFoundException;
+import lk.ijse.Crop_monitoring_system_backend.service.UserService;
+import lk.ijse.Crop_monitoring_system_backend.util.AppUtil;
+import lk.ijse.Crop_monitoring_system_backend.util.Mapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
-public class UserServiceIMPL {
-
-
-    private final UserRepo userRepo;
-    private final Mapping mapping;
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserDao userDao ;
+    @Autowired
+    private Mapping userMapping;
 
     @Override
-    public UserDetailsService userDetailsService() {
-        return username ->
-                userRepo.findByEmail(username)
-                        .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    public UserDto save(UserDto dto) {
+        dto.setId(AppUtil.generateUserId());
+
+        return userMapping.toUserDto(userDao.save(userMapping.toUserEntity(dto)));
     }
 
     @Override
-    public void saveUser(UserDTO userDTO) {
-
-        mapping.toUserDTO(userRepo.save(mapping.toUserEntity(userDTO)));
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
+    public UserDto update(String id, UserDto dto) {
+        return userMapping.toUserDto(userDao.save(userMapping.toUserEntity(dto)));
     }
 
     @Override
-    public String getRole(String email) {
-        return userRepo.findByEmail(email)
-                .map(userEntity -> userEntity.getRole().name())
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
+    public void delete(String id) {
+         userDao.deleteById(id);
     }
 
     @Override
-    public String getEmployeeCode(String cashierName) {
-        Optional<UserEntity> user = userRepo.findByEmail(cashierName);
-        return user.map(UserEntity::getEmployee_code).orElse(null);
-
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
+    public UserDto findById(String id) {
+        return null;
     }
 
     @Override
-    public List<UserDTO> getAllUsers() {
-        List<UserDTO> userDTOs = mapping.toUserDTOs(userRepo.findAll());
-
-        for (UserDTO userDTO : userDTOs) {
-            userDTO.setPassword(null);
-
-        }
-        return userDTOs;
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
+    public List<UserDto> findAll() {
+        return userMapping.asUserDtoList(userDao.findAll());
     }
 
     @Override
-    public boolean deleteUser(String email) {
-        userRepo.deleteByEmail(email);
-        return true;
+
+    public Optional<UserDto> findByEmail(String email) {
+        Optional<UserEntity> byEmail = userDao.findByEmail(email);
+
+        return byEmail.map(userMapping::toUserDto);
+    }
+
+    @Override
+    public UserDetailsService userDetailService() {
+        return userName ->
+                userDao.findByEmail(userName)
+                        .orElseThrow(()->new UserNotFoundException("User Not Found"));
     }
 }
-
