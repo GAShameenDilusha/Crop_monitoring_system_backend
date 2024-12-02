@@ -1,19 +1,13 @@
 package lk.ijse.Crop_monitoring_system_backend.service;
 
-import lk.ijse.Crop_monitoring_system_backend.dto.UserDTO;
+
+import lk.ijse.Crop_monitoring_system_backend.Dto.impl.UserDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.util.List;
+import java.util.Optional;
 
-public interface UserService {
-    UserDetailsService userDetailsService();
-    void saveUser(UserDTO userDTO);
+public interface UserService extends BaseService<UserDto>{
+    Optional<UserDto> findByEmail(String email);
 
-    String getRole(String email);
-
-    String getEmployeeCode(String cashierName);
-
-    List<UserDTO> getAllUsers();
-
-    boolean deleteUser(String email);
+    UserDetailsService userDetailService();
 }
