@@ -1,11 +1,13 @@
 package lk.ijse.Crop_monitoring_system_backend.service;
 
 
-import lk.ijse.Crop_monitoring_system_backend.dto.FieldDTO;
 
-public interface FieldService extends SuperService<String, FieldDTO>{
-    String getFieldCode();
+import lk.ijse.Crop_monitoring_system_backend.Dto.impl.FieldDto;
+import lk.ijse.Crop_monitoring_system_backend.Dto.impl.StaffDto;
 
+import java.util.List;
 
-    String getFieldName(String fieldCode);
+public interface FieldService extends BaseService<FieldDto> {
+    List<StaffDto> getStaffIdsByFieldId(String fieldId);
+
 }
