@@ -77,7 +77,6 @@ public class CropServiceImpl implements CropService {
         cropDao.deleteById(id);
 
     }
-
     @Override
     @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
     public CropDto findById(String id) {
