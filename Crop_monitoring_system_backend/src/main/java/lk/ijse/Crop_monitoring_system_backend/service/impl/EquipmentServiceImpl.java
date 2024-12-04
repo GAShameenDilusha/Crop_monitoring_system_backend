@@ -36,7 +36,6 @@ public class EquipmentServiceImpl implements EquipmentService {
         EquipmentEntity equipment = equipmentMapper.toEquipmentEntity(dto);
         equipment = equipmentDao.save(equipment);
         return equipmentMapper.toEquipmentDto(equipment);
-
     }
 
     @Override
