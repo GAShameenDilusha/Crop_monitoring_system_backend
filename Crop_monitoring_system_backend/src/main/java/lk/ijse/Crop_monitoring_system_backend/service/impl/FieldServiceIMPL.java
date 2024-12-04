@@ -33,22 +33,7 @@ public class FieldServiceImpl implements FieldService {
     @Override
     @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public FieldDto save(FieldDto dto) {
-       /* dto.setFieldId(AppUtil.generateFieldId());
-        FieldEntity field = fieldMapping.toFieldEntity(dto);
-        try {
-            Set<StaffEntity> staffEntities = new HashSet<>();
-            if (dto.getStaffIds() != null) {
-                for (String staffId : dto.getStaffIds()) {
-                    StaffEntity staff = staffDao.findById(staffId)
-                            .orElseThrow(() -> new IllegalArgumentException("Staff not found with ID: " + staffId));
-                    staffEntities.add(staff);
-                }
-            }
-            field.setStaffMembers(staffEntities);
-            return fieldMapping.toFieldDto(fieldDao.save(field));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }*/
+
         dto.setFieldId(AppUtil.generateFieldId());
         FieldEntity field = fieldMapping.toFieldEntity(dto);
         try {
@@ -56,8 +41,6 @@ public class FieldServiceImpl implements FieldService {
         } catch (Exception e) {
             throw new RuntimeException("Error saving field: " + e.getMessage(), e);
         }
-
-
     }
 
     @Override
