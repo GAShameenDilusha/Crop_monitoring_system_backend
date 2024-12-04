@@ -15,7 +15,6 @@ public class RegexUtilForId {
     public static boolean isValidUserId(String userId) {
         return userId.startsWith("USER-") && isValidPrefixedUuid(userId);
     }
-
     public static boolean isValidStaffId(String staffId) {
         return staffId.startsWith("STAFF-") && isValidPrefixedUuid(staffId);
     }
