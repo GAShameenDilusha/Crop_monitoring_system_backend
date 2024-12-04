@@ -60,5 +60,7 @@ public class AuthServiceImpl implements AuthService {
                 .orElseThrow(() -> new UserNotFoundException("User Not found"));
         var refreshedToken = jwtService.refreshToken(findUser);
         return JWTAuthResponse.builder().token(refreshedToken).build();
+
+
     }
 }

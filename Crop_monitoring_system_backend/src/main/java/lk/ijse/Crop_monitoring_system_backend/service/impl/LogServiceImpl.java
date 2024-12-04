@@ -85,7 +85,32 @@ public class LogServiceImpl implements LogService {
             existingLog.setImage2(dto.getImage2());
         }
 
+       /* // Update associated staff
+        if (dto.getStaffIds() != null && !dto.getStaffIds().isEmpty()) {
+            List<StaffEntity> staffEntities = staffDao.findAllById(dto.getStaffIds());
+            if (staffEntities.size() != dto.getStaffIds().size()) {
+                throw new IllegalArgumentException("One or more staff IDs are invalid.");
+            }
+            existingLog.setStaffLogs(new HashSet<>(staffEntities));
+        }
 
+        // Update associated fields
+        if (dto.getFieldIds() != null && !dto.getFieldIds().isEmpty()) {
+            List<FieldEntity> fieldEntities = fieldDao.findAllById(dto.getFieldIds());
+            if (fieldEntities.size() != dto.getFieldIds().size()) {
+                throw new IllegalArgumentException("One or more field IDs are invalid.");
+            }
+            existingLog.setFieldLogs(new HashSet<>(fieldEntities));
+        }
+
+        // Update associated crops
+        if (dto.getCropIds() != null && !dto.getCropIds().isEmpty()) {
+            List<CropEntity> cropEntities = cropDao.findAllById(dto.getCropIds());
+            if (cropEntities.size() != dto.getCropIds().size()) {
+                throw new IllegalArgumentException("One or more crop IDs are invalid.");
+            }
+            existingLog.setCropLogs(new HashSet<>(cropEntities));
+        }*/
         // Update associated staff
         if (dto.getStaffIds() != null && !dto.getStaffIds().isEmpty()) {
             updateStaffAssociations(existingLog, dto.getStaffIds());
