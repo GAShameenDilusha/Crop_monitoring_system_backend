@@ -30,7 +30,7 @@ public class CropController {
                                       @RequestParam(value = "imageFile", required = false) MultipartFile imageFile) {
         logger.info("Request to save crop with data: {}", cropData);
 
-        // Convert cropData JSON string to CropDto object
+
         CropDto cropDto;
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -41,7 +41,6 @@ public class CropController {
                 return new ResponseEntity<>("Invalid field ID format", HttpStatus.BAD_REQUEST);
             }
 
-            // Convert the image file to Base64 string
             if (imageFile != null && !imageFile.isEmpty()) {
                 logger.info("Processing image file for crop");
                 try {
