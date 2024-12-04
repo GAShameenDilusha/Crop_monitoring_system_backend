@@ -35,7 +35,6 @@ public class Regex {
     public static Pattern getIdPattern() {
         return idPattern;
     }
-
     public static Pattern getDoublePattern() {
         return doublePattern;
     }
