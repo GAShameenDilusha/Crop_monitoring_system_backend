@@ -12,7 +12,6 @@ public class HealthChecker {
 
         @GetMapping
         public String healthTest(){
-            return "Green shadow controller working";
+            return "Crop System testing";
         }
-
 }
