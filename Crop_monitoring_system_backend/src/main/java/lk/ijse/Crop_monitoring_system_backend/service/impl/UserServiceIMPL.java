@@ -63,7 +63,6 @@ public class UserServiceImpl implements UserService {
 
         return byEmail.map(userMapping::toUserDto);
     }
-
     @Override
     public UserDetailsService userDetailService() {
         return userName ->
