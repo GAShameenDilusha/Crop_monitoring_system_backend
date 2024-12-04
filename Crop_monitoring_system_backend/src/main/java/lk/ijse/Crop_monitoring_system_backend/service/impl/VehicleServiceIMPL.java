@@ -40,7 +40,6 @@ public class VehicleServiceImpl implements VehicleService {
         }
         return vehicleMapper.toVehicleDto(vehicleDao.save(vehicle));
     }
-
     @Override
     @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public VehicleDto update(String id, VehicleDto dto) {
