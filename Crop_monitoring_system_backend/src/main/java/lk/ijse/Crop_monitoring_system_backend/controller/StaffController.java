@@ -106,7 +106,4 @@ public class StaffController {
         log.warn("Staff not found with email: {}", email);
         return ResponseEntity.ok(staffDto.get());
     }
-
-
-
 }
