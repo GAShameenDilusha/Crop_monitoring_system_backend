@@ -135,7 +135,6 @@ public class LogController {
         Map<String, Object> relatedEntities = logService.getRelatedEntitiesAsDtos(logId);
         return ResponseEntity.ok(relatedEntities);
     }
-
 }
 
 
