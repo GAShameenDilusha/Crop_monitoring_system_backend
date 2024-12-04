@@ -57,9 +57,9 @@ public class UserController {
             UserDto user = userDtoOptional.get();
 
             // Update fields in userEntity based on userDto
-            user.setEmail(userDto.getEmail());  // Assuming email is allowed to be updated
-            user.setPassword(userDto.getPassword()); // Update password
-            user.setRole(userDto.getRole()); // Update role if necessary
+            user.setEmail(userDto.getEmail());
+            user.setPassword(userDto.getPassword());
+            user.setRole(userDto.getRole());
 
 
             // Save the updated entity back to the database
