@@ -31,12 +31,6 @@ public class StaffServiceImpl implements StaffService {
 
     public StaffDto save(StaffDto dto) {
        dto.setStaffId(AppUtil.generateStaffId());
-       /* StaffEntity save = staffDao.save(staffMapper.toStaffEntity(dto));
-        if(save==null){
-            System.out.println("not saved staff data");
-            //throw new DataPersistException(" Staff not saved");
-        }
-        return staffMapper.toStaffDto(save);*/
         try {
             StaffEntity staffEntity = staffMapper.toStaffEntity(dto);
 
